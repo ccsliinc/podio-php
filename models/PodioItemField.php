@@ -114,10 +114,10 @@ class PodioItemField extends PodioObject {
         $this->type = 'money';
         break;
       case 'PodioPhoneItemField':
-        $this->type = 'phone';
+        if($this->type =='' || strpos('mobile|work|home|main|work_fax|private_fax|other', $this->type)) $this->type = 'home';
         break;
       case 'PodioEmailItemField':
-        $this->type = 'email';
+        if($this->type =='' || strpos('work|home|other', $this->type)) $this->type = 'home';
         break;
       default:
         break;
